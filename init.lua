@@ -1,3 +1,6 @@
+-- Entry point for neovim configuration
+
+
 -- [[ The following must be set before plugins are loaded ]]
 -- Set map key to space
 vim.g.mapleader = " "
@@ -26,7 +29,7 @@ vim.o.showmode = false
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+  vim.o.clipboard = "unnamedplus"
 end)
 
 -- Broken lines will continue on the same indentation as original
@@ -79,10 +82,10 @@ vim.diagnostic.config({ virtual_text = true })
 -- [[ Basic Autocommands ]]
 -- :help lua-guide-autcommands
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking text",
-	callback = function()
-		vim.hl.on_yank()
-	end,
+  desc = "Highlight when yanking text",
+  callback = function()
+    vim.hl.on_yank()
+  end,
 })
 
 -- [[ Plugin configuration ]]

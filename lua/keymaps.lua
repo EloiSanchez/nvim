@@ -1,3 +1,5 @@
+-- All the custom keymaps are defined here for centrality
+
 -- Helper reference to vim keymap set function
 local map = vim.keymap.set
 

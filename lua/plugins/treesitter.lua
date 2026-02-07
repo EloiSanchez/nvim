@@ -1,3 +1,7 @@
+-- Improves treesitter for neovim. Also provides functions to install
+-- parsers with ease. See :TSInstall
+--
+-- https://github.com/nvim-treesitter/nvim-treesitter
 local ensure_installed_packages = {
   'lua',
   'python',

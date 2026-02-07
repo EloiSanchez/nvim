@@ -1,4 +1,5 @@
 -- Pop ups for auto completion
+-- https://github.com/Saghen/blink.cmp
 return {
   {
     'saghen/blink.cmp',

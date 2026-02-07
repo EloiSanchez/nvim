@@ -1,3 +1,9 @@
+-- LSP configurations provided by nvim-lspconfig
+-- What happens in the config function is vanilla nvim, which by default takes 
+-- the data from the configs provided by nvim-lspconfig
+--
+-- https://github.com/neovim/nvim-lspconfig
+-- :h vim.lsp
 return {
   {
     "neovim/nvim-lspconfig",

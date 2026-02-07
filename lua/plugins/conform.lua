@@ -3,6 +3,7 @@
 --
 -- The format_on_save keyword is a shortcut that avoids having to create
 -- an autocmd
+-- https://github.com/stevearc/conform.nvim
 return {
   {
     "stevearc/conform.nvim",
