@@ -13,17 +13,19 @@ return {
         formatters_by_ft = {
           lua = { "stylua" },
           python = { "black" },
-          sql = { "sqlfluff-lsp" },
+          sql = { lsp_format = "prefer", timeout_ms = 3000 },
           markdown = { "prettier" },
           yaml = { "prettier" },
           json = { "prettier" },
-          ["_"] = { "trim_whitespaces" },
+          -- ["_"] = { "trim_whitespaces" },
         },
         format_on_save = {
           -- These options will be passed to conform.format()
           timeout_ms = 500,
           lsp_format = "fallback",
         },
+
+        -- Configuration for specific formatters
         formatters = {
           stylua = { append_args = { "--indent-type", "Spaces", "--indent-width", "2" } },
         },
