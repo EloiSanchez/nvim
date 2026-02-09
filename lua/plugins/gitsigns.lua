@@ -7,7 +7,7 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 return {
   {
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
     opts = {
       signcolumn = false,
       numhl = true,

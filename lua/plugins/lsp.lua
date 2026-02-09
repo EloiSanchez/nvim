@@ -1,5 +1,5 @@
 -- LSP configurations provided by nvim-lspconfig
--- What happens in the config function is vanilla nvim, which by default takes 
+-- What happens in the config function is vanilla nvim, which by default takes
 -- the data from the configs provided by nvim-lspconfig
 --
 -- https://github.com/neovim/nvim-lspconfig
@@ -25,20 +25,21 @@ return {
 
       -- TODO: If this is tested and works well in production, commit it to
       -- nvim-lspconfig
+      -- TODO: Make default language ansi unless .sqlfluff is found
       vim.lsp.config("sqlfluff-lsp", {
         cmd = { "sqlfluff-lsp", "serve" },
         filetypes = { "sql" },
-        root_markers = { ".sqlfluff" },
+        root_markers = { ".sqlfluff", },
       })
       vim.lsp.enable("sqlfluff-lsp")
 
-      -- Disable weird semantic highlighting when entering a python buffer
-      -- then we rely only on treesitter, which has to be reactivated for this
-      -- buffer
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           if client then
+            -- Disable weird semantic highlighting when entering a python buffer
+            -- then we rely only on treesitter, which has to be reactivated for this
+            -- buffer
             if client.name == "basedpyright" then
               client.server_capabilities.semanticTokensProvider = nil
               vim.treesitter.start()
