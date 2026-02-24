@@ -21,7 +21,7 @@ return {
 
     config = function()
       vim.lsp.enable("lua_ls")
-      vim.lsp.enable("basedpyright")
+      vim.lsp.enable("pyright")
 
       -- TODO: If this is tested and works well in production, commit it to
       -- nvim-lspconfig
@@ -29,7 +29,7 @@ return {
       vim.lsp.config("sqlfluff-lsp", {
         cmd = { "sqlfluff-lsp", "serve" },
         filetypes = { "sql" },
-        root_markers = { ".sqlfluff", },
+        root_markers = { ".sqlfluff" },
       })
       vim.lsp.enable("sqlfluff-lsp")
 
