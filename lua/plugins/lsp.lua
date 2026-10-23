@@ -21,32 +21,23 @@ return {
 
     config = function()
       vim.lsp.enable("lua_ls")
-      vim.lsp.enable("pyright")
+      vim.lsp.enable("ruff")
 
-      -- TODO: If this is tested and works well in production, commit it to
-      -- nvim-lspconfig
-      -- TODO: Make default language ansi unless .sqlfluff is found
-      vim.lsp.config("sqlfluff-lsp", {
-        cmd = { "sqlfluff-lsp", "serve" },
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" } }
+          }
+        }
+      })
+
+      vim.lsp.config("sqlmesh-lsp", {
+        cmd = { "sqlmesh_lsp", },
         filetypes = { "sql" },
-        root_markers = { ".sqlfluff" },
+        root_markers = { "config.yaml" },
       })
-      vim.lsp.enable("sqlfluff-lsp")
-
-      vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(ev)
-          local client = vim.lsp.get_client_by_id(ev.data.client_id)
-          if client then
-            -- Disable weird semantic highlighting when entering a python buffer
-            -- then we rely only on treesitter, which has to be reactivated for this
-            -- buffer
-            if client.name == "basedpyright" then
-              client.server_capabilities.semanticTokensProvider = nil
-              vim.treesitter.start()
-            end
-          end
-        end,
-      })
+      vim.lsp.enable("sqlmesh-lsp")
     end,
   },
 }

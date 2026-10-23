@@ -6,13 +6,19 @@ local map = vim.keymap.set
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Window navigation is already set by plugin vim-tmux-navigator
--- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows (See :help wincmd)
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Copy to system clipboard
+map("v", "<leader>c", '"+y')
+map("n", "<leader>c", '"+y')
 
 -- [[ Telescope ]]
 local builtin = require("telescope.builtin")

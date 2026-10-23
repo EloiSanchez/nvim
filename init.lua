@@ -27,10 +27,10 @@ vim.o.mouse = "a"
 vim.o.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
-vim.schedule(function()
-  vim.o.clipboard = "unnamedplus"
-end)
+vim.g.clipboard = 'osc52'
+
+-- Disable default unnamed+ to avoid Kitty's paste confirmation prompts
+vim.opt.clipboard = ""
 
 -- Broken lines will continue on the same indentation as original
 vim.o.breakindent = true
